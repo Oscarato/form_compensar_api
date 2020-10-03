@@ -56,17 +56,19 @@ class Employee extends RestController
     //--------------------------------------------------------------------
 
     /**
-     * @api {get} /employees Peticion lista de empleados
+     * @api {get} /employees Petición lista de empleados
      * @apiName Employees
-     * @apiGroup Employess
+     * @apiGroup Listar
      *
      * @apiParam {Number} limit Limite de lista
      * @apiParam {Number}  offset  Posicion de inicio de datos para lista
-     * @apiParam {JSON} filter  json de filtro 
+     * @apiParam {Object} filter  json de filtro {"filter": {"query": "texto a buscar.."}}
      * 
      *
-     * @apiSuccess {JSON} json con la lista de empleados
+     * @apiSuccess {JSON} JSON con la lista de empleados
      * 
+     * @apiHeader {String} Content-Type multipart/form-data.
+     * @apiHeader {String} X-Token-Compensar JWT.
      */
     public function fetch()
     {
@@ -112,9 +114,24 @@ class Employee extends RestController
     //--------------------------------------------------------------------
 
     /**
-     * Add function
-     *
-     * @return void
+     * @api {post} /employees Petición crear empleado
+     * @apiName Employees
+     * @apiGroup Crear
+     * 
+     * @apiParam {Number} identification Identificación del empleado
+     * @apiParam {String} name Nombre del empleado
+     * @apiParam {String} lastname Apellido del empleado
+     * @apiParam {String} cat Categoria del empleado
+     * @apiParam {Number} age Edad del empleado
+     * @apiParam {String} job Cargo del empleado
+     * @apiParam {Number} status Estado del empleado [0=Inactivo, 1=Activo]  
+     * 
+     * @apiSuccess {JSON} JSON con mensaje de creación exitosa
+     * 
+     * @apiHeader {String} Content-Type multipart/form-data.
+     * @apiHeader {String} X-Token-Compensar JWT.
+     * 
+     * @apiError BadRequest Json Error en los datos Ingresado, campo requerido.
      */
     public function add()
     {
@@ -171,10 +188,26 @@ class Employee extends RestController
     //--------------------------------------------------------------------
 
     /**
-     * Modifica un empleado
-     *
-     * @param Int $id
-     * @return void
+     * @api {put} /employees/:id Petición actualizar empleado
+     * @apiName Employees
+     * @apiGroup Actualizar
+     * 
+     * @apiParam {id} id ID del empleado
+     * @apiParam {Number} identification Identificación del empleado
+     * @apiParam {String} name Nombre del empleado
+     * @apiParam {String} lastname Apellido del empleado
+     * @apiParam {String} cat Categoria del empleado
+     * @apiParam {Number} age Edad del empleado
+     * @apiParam {String} job Cargo del empleado
+     * @apiParam {Number} status Estado del empleado [0=Inactivo, 1=Activo]  
+     * 
+     * @apiSuccess {JSON} JSON con mensaje de creación exitosa
+     * 
+     * @apiHeader {String} Content-Type multipart/form-data.
+     * @apiHeader {String} X-Token-Compensar JWT.
+     * 
+     * @apiError NoFound Json informando que no existe el empleado.
+     * @apiError BadRequest Json No se recibieron datos para actualizar.
      */
     public function modify($id = null){
         try {
@@ -194,65 +227,35 @@ class Employee extends RestController
             if(empty($employee)){
                 throw new \Exception('Error - El empleado no existe.');
             }
+            
+            //iniciamos la transaccion
+            $this->model->transStart();
 
-            //validamos los datos
-            // $validation =  \Config\Services::validation();
-            // $rules = [
-            //     'identification'    =>  ['label' => 'Identificación'],
-            //     'name'              =>  ['label' => 'Email'],
-            //     'lastname'          =>  ['label' => 'Apellido'],
-            //     'cat'               =>  ['label' => 'Categoria'],
-            //     'age'               =>  ['label' => 'Edad'],
-            //     'job'               =>  ['label' => 'Cargo'],
-            //     'status'            =>  ['label' => 'Estado'],
-            // ];
-            // if ($validation->setRules($rules)->run($data)) {
-                
-                //iniciamos la transaccion
-                $this->model->transStart();
+            $data_up = array(
+                'identification',
+                'name',
+                'lastname',
+                'cat',
+                'age',
+                'job',
+                'status'
+            );
 
-                $data_up = array(
-                    'identification',
-                    'name',
-                    'lastname',
-                    'cat',
-                    'age',
-                    'job',
-                    'status'
-                );
-
-                $dataSave = array();
-                foreach ($data_up as $d) {
-                    if(isset($data[$d])){
-                        $dataSave[$d] =   $data[$d];
-                    }
+            $dataSave = array();
+            foreach ($data_up as $d) {
+                if(isset($data[$d])){
+                    $dataSave[$d] =   $data[$d];
                 }
+            }
+            
+            //consultamos el usuario en la DB
+            $this->employeesModel->update($id, $dataSave);
+            
+            //finalizamos la  transaccion                                         
+            $this->model->transComplete();
 
-                // $dataSave = [
-                //     'identification'    =>  $data['identification'],
-                //     'name'              =>  $data['name'],
-                //     'lastname'          =>  $data['lastname'],
-                //     'cat'               =>  $data['cat'],
-                //     'age'               =>  $data['age'],
-                //     'job'               =>  $data['job'],
-                //     'status'            =>  $data['status'],
-                // ];
-
-                // print_r($dataSave);
-                // exit;
-
-                //consultamos el usuario en la DB
-                $this->employeesModel->update($id, $dataSave);
+            return $this->respondRest(true, 'Registro Exitoso');
                 
-                //finalizamos la  transaccion                                         
-                $this->model->transComplete();
-
-                return $this->respondRest(true, 'Registro Exitoso');
-
-            // } else {
-            //     $errors = $validation->getErrors();
-            //     return $this->respondRest(false, 'Error en los datos Ingresados, ' . implode(' - ', $errors), $errors, 400);
-            // }
         } catch (\Exception $e) {
             return $this->respondRest(false, $e->getMessage(), [], 401);
         }
@@ -261,9 +264,18 @@ class Employee extends RestController
     //--------------------------------------------------------------------
 
     /**
-     * Del function
+     * @api {Delete} /employees/:id Petición eliminar empleado
+     * @apiName Employees
+     * @apiGroup Eliminar
      * 
-     * @return void
+     * @apiParam {Number} id ID del empleado
+     * 
+     * @apiSuccess {JSON} JSON con mensaje de eliminación exitosa
+     * 
+     * @apiHeader {String} Content-Type multipart/form-data.
+     * @apiHeader {String} X-Token-Compensar JWT.
+     * 
+     * @apiError NoFound Json informando que no existe el empleado.
      */
     public function delete($id = null)
     {

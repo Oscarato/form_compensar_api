@@ -1,7 +1,7 @@
 {
-    "name": "example",
+    "name": "Documentación",
     "version": "0.1.0",
-    "description": "apiDoc basic example",
+    "description": "Diseño del contrato del WS",
     "title": "API para compensar",
-    "url" : "https://github.com/Oscarato/form_compensar_api"
+    "url" : "http://localhost/compensar_api/public"
 }

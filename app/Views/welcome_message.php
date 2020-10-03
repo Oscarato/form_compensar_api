@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Welcome to API TEST!</title>
+	<title>Welcome to API COMPENSAR TEST!</title>
 	<meta name="description" content="Test hecho con codeniter">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
@@ -201,7 +201,7 @@
 		
 		<div class="heroe">
 
-			<h1>Bienvenido a la API de prueba para COMPENSAR. Versión 1.0</h1>
+			<h1>Bienvenido a la API de prueba para COMPENSAR. Versión 0.1.0</h1>
 			
 		</div>
 
@@ -213,17 +213,23 @@
 
 		<h1>Acerca de esta pagina</h1>
 
-		<p>Esta es una api desarrollada en codeniter para las pruebas.</p>
+		<p>Esta es una API REST desarrollada en CodeIgniter para las pruebas.</p>
 
-		<p>Diseño del contrato del WS</p>
+		<p>Desarrollador: Ing. Oscar Javier Jimenez</p>
 
-		<pre><code>/users/add</code></pre>
+		<pre><code><a href="http://localhost/compensar_api/apidoc" target="_blank">Diseño del contrato del WS</a></code></pre>
 
-		<p></p>
+		<pre>
+			<code>
+				<p>Documento donde especifique la tecnología que utilizo para desarrollar la prueba</p>
+				<b>BackEnd (API): PHP version >= 7. Framework Codeigniter v4</b>
+				<b>Front: PHP version >= 7. Framework Codeigniter v4</b>
+			</code>
+		</pre>
 
-		<pre><code>/users/add</code></pre>
-		<pre><code>/users/add</code></pre>
-		<pre><code>/users/add</code></pre>
+		<pre><code><a href="https://github.com/Oscarato/form_compensar_api" target="_blank">Código Fuente.</a></code></pre>
+
+		<pre><code><a href="https://github.com/Oscarato/form_compensar_api" target="_blank">Front-end básico</a></code></pre>
 
 	</section>
 

@@ -1,7 +1,7 @@
 {
 	"name": "codeigniter4/framework",
 	"type": "project",
-	"description": "The CodeIgniter framework v4",
+	"description": "Proyecto API para pruebas Compensar",
 	"homepage": "https://codeigniter.com",
 	"license": "MIT",
 	"require": {

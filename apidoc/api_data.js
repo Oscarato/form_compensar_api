@@ -1,10 +1,311 @@
 define({ "api": [
   {
+    "type": "put",
+    "url": "/employees/:id",
+    "title": "Petición actualizar empleado",
+    "name": "Employees",
+    "group": "Actualizar",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "id",
+            "optional": false,
+            "field": "id",
+            "description": "<p>ID del empleado</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "identification",
+            "description": "<p>Identificación del empleado</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Nombre del empleado</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "lastname",
+            "description": "<p>Apellido del empleado</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "cat",
+            "description": "<p>Categoria del empleado</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "age",
+            "description": "<p>Edad del empleado</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "job",
+            "description": "<p>Cargo del empleado</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>Estado del empleado [0=Inactivo, 1=Activo]</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "JSON",
+            "optional": false,
+            "field": "JSON",
+            "description": "<p>con mensaje de creación exitosa</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>multipart/form-data.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "X-Token-Compensar",
+            "description": "<p>JWT.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "NoFound",
+            "description": "<p>Json informando que no existe el empleado.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "BadRequest",
+            "description": "<p>Json No se recibieron datos para actualizar.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "app/Controllers/Employee.php",
+    "groupTitle": "Actualizar"
+  },
+  {
+    "type": "post",
+    "url": "/employees",
+    "title": "Petición crear empleado",
+    "name": "Employees",
+    "group": "Crear",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "identification",
+            "description": "<p>Identificación del empleado</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Nombre del empleado</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "lastname",
+            "description": "<p>Apellido del empleado</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "cat",
+            "description": "<p>Categoria del empleado</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "age",
+            "description": "<p>Edad del empleado</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "job",
+            "description": "<p>Cargo del empleado</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>Estado del empleado [0=Inactivo, 1=Activo]</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "JSON",
+            "optional": false,
+            "field": "JSON",
+            "description": "<p>con mensaje de creación exitosa</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>multipart/form-data.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "X-Token-Compensar",
+            "description": "<p>JWT.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "BadRequest",
+            "description": "<p>Json Error en los datos Ingresado, campo requerido.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "app/Controllers/Employee.php",
+    "groupTitle": "Crear"
+  },
+  {
+    "type": "Delete",
+    "url": "/employees/:id",
+    "title": "Petición eliminar empleado",
+    "name": "Employees",
+    "group": "Eliminar",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>ID del empleado</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "JSON",
+            "optional": false,
+            "field": "JSON",
+            "description": "<p>con mensaje de eliminación exitosa</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>multipart/form-data.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "X-Token-Compensar",
+            "description": "<p>JWT.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "NoFound",
+            "description": "<p>Json informando que no existe el empleado.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "app/Controllers/Employee.php",
+    "groupTitle": "Eliminar"
+  },
+  {
     "type": "get",
     "url": "/employees",
-    "title": "Peticion lista de empleados",
+    "title": "Petición lista de empleados",
     "name": "Employees",
-    "group": "Employess",
+    "group": "Listar",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -24,10 +325,10 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "JSON",
+            "type": "Object",
             "optional": false,
             "field": "filter",
-            "description": "<p>json de filtro</p>"
+            "description": "<p>json de filtro {&quot;filter&quot;: {&quot;query&quot;: &quot;texto a buscar..&quot;}}</p>"
           }
         ]
       }
@@ -39,14 +340,34 @@ define({ "api": [
             "group": "Success 200",
             "type": "JSON",
             "optional": false,
-            "field": "json",
+            "field": "JSON",
             "description": "<p>con la lista de empleados</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>multipart/form-data.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "X-Token-Compensar",
+            "description": "<p>JWT.</p>"
           }
         ]
       }
     },
     "version": "0.0.0",
     "filename": "app/Controllers/Employee.php",
-    "groupTitle": "Employess"
+    "groupTitle": "Listar"
   }
 ] });
