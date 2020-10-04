@@ -130,7 +130,7 @@ class Rest
         'Accept-Language',
         'User-Agent',
         'X-Token-Compensar',
-        'XMLHTTPRequest',
+        'XMLHTTPRequest'
     ];
 
     //--------------------------------------------------------------------
@@ -147,7 +147,6 @@ class Rest
         'POST',
         'OPTIONS',
         'PUT',
-        'PATCH',
         'DELETE'
     ];
 
@@ -175,6 +174,7 @@ class Rest
      */
     public $allowedCorsOrigins = [
         'http://localhost',
+        'localhost'
     ];
 
     //--------------------------------------------------------------------

@@ -7,7 +7,7 @@ y/o borrar un usuario de la BD
 [development repository](https://github.com/Oscarato/form_compensar_api).
 
 Documentación
-[here](http://localhost/compensar_api/apidoc/). 
+[here](http://34.229.90.157/compensar_api/apidoc/). 
 
 ## Versión
 
@@ -15,7 +15,7 @@ Documentación
 
 ## BACK URL
 
-[here](http://localhost/compensar_api/public/). 
+[here](http://34.229.90.157/compensar_api/public/). 
 
 ## FRONT URL
 

@@ -461,10 +461,10 @@ if (! function_exists('force_https'))
 			$request->uri->getQuery(), $request->uri->getFragment()
 		);
 
-		// Set an HSTS header
-		$response->setHeader('Strict-Transport-Security', 'max-age=' . $duration);
-		$response->redirect($uri);
-		$response->sendHeaders();
+		// // Set an HSTS header
+		// $response->setHeader('Strict-Transport-Security', 'max-age=' . $duration);
+		// $response->redirect($uri);
+		// $response->sendHeaders();
 
 		if (ENVIRONMENT !== 'testing')
 		{

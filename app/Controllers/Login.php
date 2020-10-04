@@ -59,7 +59,7 @@ class Login extends RestController
     public function signIn()
     {
         try {
-            
+                       
             //
             $request = \Config\Services::request();
 
@@ -87,8 +87,7 @@ class Login extends RestController
                             'id' => $user['id'],
                             'name' => $user['name'],
                             'email' => $user['email'],
-                            'status' => $user['status'],
-                            'change_password' => $user['change_password'],
+                            'status' => $user['status']
                         ];
                         
 
@@ -187,8 +186,7 @@ class Login extends RestController
             'id' => $userData['id'],
             'name' => $userData['name'],
             'email' => $userData['email'],
-            'status' => $userData['status'],
-            'change_password' => $userData['change_password'],
+            'status' => $userData['status']
         ];
 
         // consultamos el perfil del usuario

@@ -14,7 +14,7 @@ class EmployeesModel extends CustomModel
 {
     protected $table      = 'employees';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['identification', 'name', 'lastname', 'cat', 'age', 'job', 'status'];
+    protected $allowedFields = ['id_type', 'identification', 'name', 'lastname', 'cat', 'age', 'job', 'status'];
 
     //--------------------------------------------------------------------
 
@@ -29,14 +29,12 @@ class EmployeesModel extends CustomModel
      * @return array
      */
     public function fecthAll(
-        int $id,
         int $limit,
         int $offset
     ) {
         $query = $this->builder()
             ->from($this->table . ' AS us', true)
-            ->select('id, identification, name, lastname, cat, age, job, status')
-            ->where('id <> '. $id);
+            ->select('id, id_type, identification, name, lastname, cat, age, job, status');
 
         if ($this->tempUseSoftDeletes === true) {
             $query->where('us.' . $this->deletedField, null);

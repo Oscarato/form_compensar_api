@@ -45,8 +45,6 @@ class RestController extends ResourceController
         if ($this->restConfig->checkCors === true) {
             $this->checkCors();
         }
-
-        $this->model = \Config\Database::connect();
     }
 
     /**
@@ -117,11 +115,11 @@ class RestController extends ResourceController
             ->setHeader('Access-Control-Allow-Methods', $this->allowedMethods);
     }
 
-    // private function setCorsStatusCode(int $statusCode = 200)
-    // {
-    //     $response = \Config\Services::response();
-    //     return $response->setStatusCode($statusCode);
-    // }
+    private function setCorsStatusCode(int $statusCode = 200)
+    {
+        $response = \Config\Services::response();
+        return $response->setStatusCode($statusCode);
+    }
 
     /**
      * Respond Rest function

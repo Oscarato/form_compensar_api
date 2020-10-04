@@ -42,12 +42,18 @@ $routes->delete('login/signout', 'Login::signOut');
 
 // Users
 $routes->post('users/add', 'User::add');
+$routes->get('profile', 'User::profile');
 
 // Employees
 $routes->get('employees', 'Employee::fetch');
 $routes->post('employees', 'Employee::add');
 $routes->put('employees/(:num)', 'Employee::modify/$1');
 $routes->delete('employees/(:num)', 'Employee::delete/$1');
+
+// route since we don't have to scan directories.
+$routes->get('/employees/list', 'Employee::listV');
+$routes->get('/employees/login', 'Employee::loginV');
+
 
 /**
  * --------------------------------------------------------------------

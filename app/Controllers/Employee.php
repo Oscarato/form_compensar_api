@@ -97,7 +97,7 @@ class Employee extends RestController
                 $this->model->transStart();
 
                 //consultamos los grupos
-                $employees = $this->employeesModel->fecthAll($user['id'], $limit, $offset, $query);
+                $employees = $this->employeesModel->fecthAll($limit, $offset, $query);
                 
                 //finalizamos la transaccion
                 $this->model->transComplete();
@@ -146,13 +146,14 @@ class Employee extends RestController
             //validamos los datos
             $validation =  \Config\Services::validation();
             $rules = [
-                'identification' => ['label' => 'Identificación', 'rules' => 'required'],
+                'id_type' => ['label' => 'Tipo de identificación', 'rules' => 'required|numeric'],
+                'identification' => ['label' => 'Identificación', 'rules' => 'required|numeric'],
                 'name' => ['label' => 'Email', 'rules' => 'required'],
                 'lastname' => ['label' => 'Apellido', 'rules' => 'required'],
                 'cat' => ['label' => 'Categoria', 'rules' => 'required'],
-                'age' => ['label' => 'Edad', 'rules' => 'required'],
+                'age' => ['label' => 'Edad', 'rules' => 'required|numeric'],
                 'job' => ['label' => 'Cargo', 'rules' => 'required'],
-                'status' => ['label' => 'Estado', 'rules' => 'required'],
+                'status' => ['label' => 'Estado', 'rules' => 'required|in_list[0,1]'],
             ];
             if ($validation->setRules($rules)->withRequest($request)->run()) {
                 
@@ -160,6 +161,7 @@ class Employee extends RestController
                 $this->model->transStart();
 
                 $dataSave = [
+                    'id_type'           =>  $data['id_type'],
                     'identification'    =>  $data['identification'],
                     'name'              =>  $data['name'],
                     'lastname'          =>  $data['lastname'],
@@ -232,6 +234,7 @@ class Employee extends RestController
             $this->model->transStart();
 
             $data_up = array(
+                'id_type',
                 'identification',
                 'name',
                 'lastname',
@@ -312,5 +315,15 @@ class Employee extends RestController
     }
 
     //--------------------------------------------------------------------
+
+    public function loginV()
+	{
+		return view('login');
+	}
+
+    public function listV()
+	{
+		return view('employees_view');
+	}
 
 }

@@ -142,33 +142,10 @@ class User extends RestController
 
             $jwt = \Config\Services::jwt();
             $resp = $jwt->validateSession();
-
+            
             if ($resp['status']) {
                 $user = $resp['data'];
-
-                //consultamos los datos del usuario
-                $userResult = $this->model->getProfile($user['id']);
-
-                if (is_null($userResult['photo']) || empty($userResult['photo'])) {
-                    $userResult['photo'] = base_url('uploads/users/default.png');
-                } else {
-                    $userResult['photo'] = base_url('uploads/' . $userResult['photo']);
-                }
-
-                $profile = [
-                    'id' => $userResult['id'],
-                    'name' => $userResult['name'],
-                    'nickname' => $userResult['nickname'],
-                    'email' => $userResult['email'],
-                    'phone' => $userResult['telephone'],
-                    'cityid' => $userResult['citie_id'],
-                    'stateid' => $userResult['deparment_id'],
-                    'photos' => [
-                        $userResult['photo']
-                    ]
-                ];
-
-                return $this->respondRest(true, 'Datos del Perfil del Usuario .', $profile);
+                return $this->respondRest(true, 'Datos del Perfil del Usuario .', $user);
             } else {
                 //return $this->failValidationError($resp['msg']);userResult
                 return $this->respondRest(false, $resp['msg'], [], 401);
@@ -181,4 +158,11 @@ class User extends RestController
 
     //--------------------------------------------------------------------
 
+    public function options()
+    {
+        return $this->response->setHeader('Access-Control-Allow-Origin', '*') //for allow any domain, insecure
+            ->setHeader('Access-Control-Allow-Headers', '*') //for allow any headers, insecure
+            ->setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE') //method allowed
+            ->setStatusCode(200); //status code
+    }
 }

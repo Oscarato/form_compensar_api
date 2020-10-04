@@ -215,9 +215,9 @@
 
 		<p>Esta es una API REST desarrollada en CodeIgniter para las pruebas.</p>
 
-		<p>Desarrollador: Ing. Oscar Javier Jimenez</p>
+		<p>Desarrollador: <b>Ing. Oscar Javier Jiménez Amaya</b></p>
 
-		<pre><code><a href="http://localhost/compensar_api/apidoc" target="_blank">Diseño del contrato del WS</a></code></pre>
+		<pre><code><a href="http://34.229.90.157/compensar_api/apidoc" target="_blank">Diseño del contrato del WS</a></code></pre>
 
 		<pre>
 			<code>
