@@ -217,7 +217,7 @@
 
 		<p>Desarrollador: <b>Ing. Oscar Javier Jiménez Amaya</b></p>
 
-		<pre><code><a href="http://34.229.90.157/compensar_api/apidoc" target="_blank">Diseño del contrato del WS</a></code></pre>
+		<pre><code><a href="http://34.229.90.157/compensar_apidoc" target="_blank">Diseño del contrato del WS</a></code></pre>
 
 		<pre>
 			<code>
@@ -225,7 +225,7 @@
 				<p>Pruebas realizadas en los lenguajes PHP y Javascript</p>
 				<p><b>BackEnd (API): PHP version >= 7. Framework Codeigniter v4</b>
 				<b>Front: PHP version >= 7. Framework Codeigniter v4 - Angular - JSQUERY - MATERIALIZE</b>
-				<p>Para realizar las pruebas ingresa a <a href="http://34.229.90.157/compensar_api/public/employees/login" target="_blank">Front-end básico</a> despues de loguearse se obtiene el JWS para probar con POSTMAN y seguir la documentación <a href="http://34.229.90.157/compensar_api/apidoc" target="_blank">Diseño del contrato del WS</a></p>
+				<p>Para realizar las pruebas ingresa a <a href="http://34.229.90.157/compensar_api/public/employees/login" target="_blank">Front-end básico</a> despues de loguearse se obtiene el JWS para probar con POSTMAN y seguir la documentación <a href="http://34.229.90.157/compensar_apidoc" target="_blank">Diseño del contrato del WS</a></p>
 			</code>
 		</pre>
 
