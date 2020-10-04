@@ -50,11 +50,18 @@ class Login extends RestController
     //--------------------------------------------------------------------
 
     /**
-     * Sign In function
-     *
-     * PSCIN-3 Iniciar Sesión
+     * @api {post} /login/signin Petición para login
+     * @apiName Login
+     * @apiGroup login
      * 
-     * @return void
+     * @apiParam {String} Email Identificación del empleado
+     * @apiParam {String} Password Nombre del empleado
+     * 
+     * @apiSuccess {JSON} JSON con mensaje de logueo exitosa y Web Token
+     * 
+     * @apiHeader {String} Content-Type multipart/form-data.
+     * 
+     * @apiError BadRequest Json Error en los datos Ingresado, usuario no existe.
      */
     public function signIn()
     {

@@ -167,7 +167,7 @@
             // token
             $scope.token = localStorage.getItem("token")
             
-            let url = 'http://localhost/compensar_api/public/'
+            let url = 'http://34.229.90.157/compensar_api/public/'
 
             // traer lista de empleados 
             $scope.fetch = function() {

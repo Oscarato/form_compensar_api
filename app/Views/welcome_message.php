@@ -229,7 +229,7 @@
 
 		<pre><code><a href="https://github.com/Oscarato/form_compensar_api" target="_blank">Código Fuente.</a></code></pre>
 
-		<pre><code><a href="https://github.com/Oscarato/form_compensar_api" target="_blank">Front-end básico</a></code></pre>
+		<pre><code><a href="http://34.229.90.157/compensar_api/public/employees/list" target="_blank">Front-end básico</a></code></pre>
 
 	</section>
 

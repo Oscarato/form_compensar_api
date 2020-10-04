@@ -80,7 +80,7 @@
             $scope.message = ''
             $scope.email = 'oscar@yopmail.co'
             $scope.password = '12345678'
-            let url = 'http://localhost/compensar_api/public/'
+            let url = 'http://34.229.90.157/compensar_api/public/'
 
             // envia la peticion login
             $scope.sendLogin = function(){
