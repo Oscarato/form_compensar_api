@@ -166,6 +166,10 @@
 
             // token
             $scope.token = localStorage.getItem("token")
+
+            if(!$scope.token){
+                window.location.href =  url + "employees/login" 
+            }
             
             let url = 'http://34.229.90.157/compensar_api/public/'
 
