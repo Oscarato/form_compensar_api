@@ -211,7 +211,7 @@
 
 	<section>
 
-		<h1>Acerca de esta pagina</h1>
+		<h1>Acerca de esta página</h1>
 
 		<p>Esta es una API REST desarrollada en CodeIgniter para las pruebas.</p>
 
@@ -221,9 +221,11 @@
 
 		<pre>
 			<code>
-				<p>Documento donde especifique la tecnología que utilizo para desarrollar la prueba</p>
-				<b>BackEnd (API): PHP version >= 7. Framework Codeigniter v4</b>
-				<b>Front: PHP version >= 7. Framework Codeigniter v4</b>
+				<p><h2>Documento donde especifique la tecnología que utilizo para desarrollar la prueba</h2></p>
+				<p>Pruebas realizadas en los lenguajes PHP y Javascript</p>
+				<p><b>BackEnd (API): PHP version >= 7. Framework Codeigniter v4</b>
+				<b>Front: PHP version >= 7. Framework Codeigniter v4 - Angular - JSQUERY - MATERIALIZE</b>
+				<p>Para realizar las pruebas ingresa a <a href="http://34.229.90.157/compensar_api/public/employees/login" target="_blank">Front-end básico</a> despues de loguearse se obtiene el JWS para probar con POSTMAN y seguir la documentación <a href="http://34.229.90.157/compensar_api/apidoc" target="_blank">Diseño del contrato del WS</a></p>
 			</code>
 		</pre>
 

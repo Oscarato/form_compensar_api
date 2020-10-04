@@ -369,5 +369,73 @@
     "version": "0.0.0",
     "filename": "app/Controllers/Employee.php",
     "groupTitle": "Listar"
+  },
+  {
+    "type": "post",
+    "url": "/login/signin",
+    "title": "Petición para login",
+    "name": "Login",
+    "group": "login",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Email",
+            "description": "<p>Identificación del empleado</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Password",
+            "description": "<p>Nombre del empleado</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "JSON",
+            "optional": false,
+            "field": "JSON",
+            "description": "<p>con mensaje de logueo exitosa y Web Token</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>multipart/form-data.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "BadRequest",
+            "description": "<p>Json Error en los datos Ingresado, usuario no existe.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "app/Controllers/Login.php",
+    "groupTitle": "login"
   }
 ]
